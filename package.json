@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/cody-callahan/team_profile_generator/issues"
   },
-  "homepage": "https://github.com/cody-callahan/team_profile_generator#readme"
+  "homepage": "https://github.com/cody-callahan/team_profile_generator#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
 }
