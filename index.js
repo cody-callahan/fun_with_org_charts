@@ -5,6 +5,7 @@ const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
 const Intern = require('./lib/Intern.js');
 const Engineer = require('./lib/Engineer.js');
+const generateHtml = require('./src/generate-html.js');
 
 const teamArray = [];
 
@@ -22,8 +23,8 @@ function askForTeamMembers() {
         if(confirmation) {
             createTeamMembers()
         } else {
-            //populateWebpage()
-            console.log(teamArray)
+            populateWebpage();
+            console.log(teamArray);
         }
     })
 }
@@ -222,9 +223,26 @@ function writeTeamData() {
     ]).then(createdManager => {
         const manager = new Manager(createdManager.ManagerName, createdManager.ManagerID, createdManager.ManagerEmail);
         teamArray.push(manager);
-        askForTeamMembers()
+        askForTeamMembers();
     })
 }
+
+// TODO: Create a function to write README file
+const writeToFile = data => {
+    fs.writeFile('./dist/my_team.html', data, err => {
+        if (err) throw new Error(err);
+        console.log('Page created! Check out the new html file in the dist directory to see it!');
+      })
+};
+
+function populateWebpage() {
+    const dataForWebpage = generateHtml(teamArray);
+    writeToFile(dataForWebpage);
+}
+
+// const obj = generateHtml();
+
+// console.log(obj)
 
 writeTeamData();
 
