@@ -33,8 +33,8 @@ function generateEmployeeCard(finishedTeamArray) {
         ${person.getRole()}
         </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${person.name}</li>
-                <li class="list-group-item">${person.id}</li>
+                <li class="list-group-item">Name: ${person.name}</li>
+                <li class="list-group-item">ID: ${person.id}</li>
                 <li class="list-group-item">Email: <a href="mailto:${person.email}">${person.email}</a> </li>
             </ul>
     </div>`;
