@@ -10,6 +10,9 @@ function generateHtml(finishedTeamArray) {
                 <title>Our Team</title>
                 
             </head>
+            <div class="jumbotron">
+            <h1>My Team</h1>      
+            </div>
             <body>
                 ${generateEmployeeCard(finishedTeamArray)}                   
             </body>
@@ -25,40 +28,40 @@ function generateEmployeeCard(finishedTeamArray) {
     
         if(person.getRole() == 'Manager') {
             cards += `
-        <div class="card" style="width: 18rem;">
+        <div class="card bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">
         ${person.getRole()}
         </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${person.name}</li>
                 <li class="list-group-item">${person.id}</li>
-                <li class="list-group-item">${person.email}</li>
+                <li class="list-group-item">Email: <a href="mailto:${person.email}">${person.email}</a> </li>
             </ul>
     </div>`;
         } if(person.getRole() == 'Intern') {
             cards += `
-            <div class="card" style="width: 18rem;">
+            <div class="card bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-header">
             ${person.getRole()}
             </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Name: ${person.name}</li>
                     <li class="list-group-item">ID: ${person.id}</li>
-                    <li class="list-group-item">Email: ${person.email}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${person.email}">${person.email}</a> </li>
                     <li class="list-group-item">:School ${person.school}</li>
                 </ul>
             </div>`;
         } if(person.getRole() == 'Engineer') {
             cards += `
-            <div class="card" style="width: 18rem;">
+            <div class="card bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-header">
             ${person.getRole()}
             </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Name: ${person.name}</li>
                     <li class="list-group-item">ID: ${person.id}</li>
-                    <li class="list-group-item">Email: ${person.email}</li>
-                    <li class="list-group-item">:School ${person.github}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${person.email}">${person.email}</a> </li>
+                    <li class="list-group-item">GitHub: <a href="https://github.com/${person.github}" target="_blank"> ${person.github}</a></li>
                 </ul>
             </div>`;
         }
