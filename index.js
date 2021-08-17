@@ -219,9 +219,22 @@ function writeTeamData() {
                   return false;
                 }
               }
+        },
+        {
+            type: 'input',
+            name: 'ManagerOfficeNo',
+            message: 'What is the manager office number?',
+            validate: input => {
+                if (isNaN(input)) {
+                    console.log('Office numberss must be numeric');
+                    return false
+                } else {
+                  return true;
+                }
+              }
         }
     ]).then(createdManager => {
-        const manager = new Manager(createdManager.ManagerName, createdManager.ManagerID, createdManager.ManagerEmail);
+        const manager = new Manager(createdManager.ManagerName, createdManager.ManagerID, createdManager.ManagerEmail, createdManager.ManagerOfficeNo);
         teamArray.push(manager);
         askForTeamMembers();
     })
