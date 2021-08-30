@@ -1,4 +1,4 @@
-# team_profile_generator
+# fun_with_org_charts
 
 ## About the project 
 You can use this app to create cards for the employees on your team! This project uses a few packages from NPM, including jest for testing and inquirer for asking the users questions. You can run this app with the command node index!
